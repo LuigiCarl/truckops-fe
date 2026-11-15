@@ -30,7 +30,10 @@ import type {
 } from "@/lib/types";
 
 const RAW_API_URL =
-  process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000/api/v1";
+  process.env.NEXT_PUBLIC_API_URL ||
+  (process.env.NODE_ENV === "production"
+    ? "https://truckops-be.onrender.com/api/v1"
+    : "http://127.0.0.1:8000/api/v1");
 
 const cleanUrl = RAW_API_URL.replace(/\/+$/, "");
 const API_BASE_URL = cleanUrl.endsWith("/api/v1")
