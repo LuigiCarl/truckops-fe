@@ -37,11 +37,6 @@ const API_BASE_URL = cleanUrl.endsWith("/api/v1")
   ? cleanUrl
   : `${cleanUrl}/api/v1`;
 
-const cleanUrl = RAW_API_URL.replace(/\/+$/, "");
-const API_BASE_URL = cleanUrl.endsWith("/api/v1")
-  ? cleanUrl
-  : `${cleanUrl}/api/v1`;
-
 const TOKEN_STORAGE_KEY = "truckops_sanctum_token";
 
 export class ApiError extends Error {
