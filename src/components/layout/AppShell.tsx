@@ -182,7 +182,7 @@ export function AppShell({
     >
       {/* Desktop Sidebar */}
       <aside
-        className="hidden lg:block w-64 shrink-0 border-r sticky top-0 h-screen print:hidden"
+        className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-30 lg:flex lg:w-64 lg:flex-col border-r print:hidden"
         style={{
           backgroundColor: "var(--sidebar-bg)",
           borderColor: "var(--sidebar-border)",
@@ -211,7 +211,7 @@ export function AppShell({
       )}
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col min-w-0 print:w-full">
+      <div className="lg:pl-64 flex-1 flex flex-col min-w-0 print:w-full print:pl-0">
         <header
           className="app-shell-header sticky top-0 z-30 border-b px-3.5 sm:px-6 py-2.5 sm:py-3.5 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 print:hidden"
           style={{
