@@ -104,7 +104,7 @@ async function request<T>(
     });
   } catch {
     throw new ApiError(
-      "Cannot reach TruckOps API server. Confirm Laravel is running on http://127.0.0.1:8000.",
+      `Cannot reach TruckOps API server at ${API_BASE_URL}. Confirm the backend server is running and CORS allows this domain.`,
       0
     );
   }
@@ -158,7 +158,7 @@ async function downloadCsv(path: string, fallbackFilename: string): Promise<void
     response = await fetch(`${API_BASE_URL}${path}`, { headers });
   } catch {
     throw new ApiError(
-      "Cannot reach TruckOps API server. Confirm Laravel is running on http://127.0.0.1:8000.",
+      `Cannot reach TruckOps API server at ${API_BASE_URL}. Confirm the backend server is running and CORS allows this domain.`,
       0
     );
   }
