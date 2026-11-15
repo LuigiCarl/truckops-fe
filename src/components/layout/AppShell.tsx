@@ -80,7 +80,7 @@ export function AppShell({
   }
 
   const sidebarContent = (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full min-h-full">
       <div
         className="h-16 px-5 flex items-center justify-between border-b shrink-0"
         style={{ borderColor: "var(--sidebar-border)" }}
@@ -147,7 +147,7 @@ export function AppShell({
       </nav>
 
       <div
-        className="p-4 border-t shrink-0 space-y-3"
+        className="mt-auto p-4 border-t shrink-0 space-y-3"
         style={{ borderColor: "var(--sidebar-border)" }}
       >
         <div className="px-2">
@@ -193,13 +193,14 @@ export function AppShell({
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex print:hidden">
+        <div className="fixed inset-0 z-50 lg:hidden print:hidden" role="dialog" aria-modal="true">
           <div
-            className="fixed inset-0 bg-slate-900/50"
+            className="fixed inset-0 bg-slate-900/50 backdrop-blur-xs"
             onClick={() => setMobileOpen(false)}
+            aria-hidden="true"
           />
           <aside
-            className="relative w-72 max-w-[85vw] h-full border-r shadow-xl z-10"
+            className="fixed inset-y-0 left-0 w-72 max-w-[85vw] h-full min-h-screen h-[100dvh] flex flex-col border-r shadow-2xl z-10 overflow-hidden"
             style={{
               backgroundColor: "var(--sidebar-bg)",
               borderColor: "var(--sidebar-border)",
