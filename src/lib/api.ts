@@ -29,8 +29,13 @@ import type {
   User,
 } from "@/lib/types";
 
-const API_BASE_URL =
+const RAW_API_URL =
   process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000/api/v1";
+
+const cleanUrl = RAW_API_URL.replace(/\/+$/, "");
+const API_BASE_URL = cleanUrl.endsWith("/api/v1")
+  ? cleanUrl
+  : `${cleanUrl}/api/v1`;
 
 const TOKEN_STORAGE_KEY = "truckops_sanctum_token";
 
